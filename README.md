@@ -1,10 +1,10 @@
 ![Test multiple format rendering](https://github.com/lc5415/rmarkdown-action/workflows/Test%20multiple%20format%20rendering/badge.svg)
-
+![Render and upload docs](https://github.com/lc5415/rmarkdown-action/workflows/Render%20and%20upload%20docs/badge.svg)
 # rmarkdown-action
 
 Github action to render documents using rmarkdown. Uses `rocker/r-rmd` docker image which includes rmardkown, pandoc and latex.
 
-## Inputs
+## Inputs
 
 * `input_file`: path or name of input file, all with respect to root directory of the repo (e.g: `my_doc.Rmd`, `path/to/my_doc.Rmd`)
 * `output_format`: (defaults to `pdf_document`), options are: `word_document`, `html_document` and `pdf_document`.
@@ -12,6 +12,8 @@ Github action to render documents using rmarkdown. Uses `rocker/r-rmd` docker im
 ## Outputs 
 
 * `output_file`: This is automatically generated as the name that precedes `.Rmd` + the output format extension (e.g: for `my_doc.Rmd` with `output_format` as `pdf_document` -> `my_doc.pdf`
+
+__Disclaimer:__ By default, the `rmarkdown-action` will simply render the document to desired format. If you also wish to upload the document back to the repo please see [the later section](#uploading-rendered-document-to-github)
 
 ## Example
 
@@ -31,11 +33,13 @@ jobs:
 	  output_format: pdf_document
 ```
 
-## Other powerful usages
+## Other powerful usages
 
-### Uploading rendered document to GitHub
+### Uploading rendered document to GitHub
 
 This makes use of the [github-push-action](https://github.com/ad-m/github-push-action) to automatically upload the rendered document to the branch that trigerred the rmarkdown-action. This is useful when the quality of the rendering needs to be reviewed as well (which is almost always the case).
+
+By default, the rendered document will be uploaded to the same location that the input file. If you want to be able to specify the output location please submit an issue.
 
 ```yaml
 name: Render documents and upload
