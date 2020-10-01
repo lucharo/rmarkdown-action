@@ -1,0 +1,14 @@
+name: Test html rendering
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Compile html document from rmd
+        uses: ./
+        with:
+          input_file: test/html.Rmd
+          output_format: html_document
+

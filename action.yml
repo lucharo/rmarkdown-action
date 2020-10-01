@@ -1,0 +1,21 @@
+# action.yml
+name: Github action for rmarkdown
+description: Renders pdf, tex or html documents out of rmarkdown files
+author: Luis Chaves
+inputs:
+  input-file:
+    description: input rmarkdown file (.Rmd)
+    required: true
+  output-format:
+    description: format of output document: pdf, html or tex
+    required: true
+    default: pdf
+outputs:
+  output-file: 
+    description: Output document defaults as the name of the rmarkdown file with the output format
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.input-file }}
+    - ${{ inputs.output-format }}
