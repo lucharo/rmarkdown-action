@@ -19,3 +19,6 @@ runs:
   args:
     - ${{ inputs.input_file }}
     - ${{ inputs.output_format }}
+branding:
+  icon: book
+  color: green
