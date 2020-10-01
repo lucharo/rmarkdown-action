@@ -7,7 +7,7 @@ inputs:
     description: input rmarkdown file (.Rmd)
     required: true
   output-format:
-    description: format of output document: pdf, html or tex
+    description: format of output document - pdf, html or tex
     required: true
     default: pdf
 outputs:
