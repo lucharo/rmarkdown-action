@@ -1,5 +1,5 @@
-![Test multiple format rendering](https://github.com/lc5415/rmarkdown-action/workflows/Test%20multiple%20format%20rendering/badge.svg)
-![Render and upload docs](https://github.com/lc5415/rmarkdown-action/workflows/Render%20and%20upload%20docs/badge.svg)
+![Test multiple format rendering](https://github.com/lucharo/rmarkdown-action/workflows/Test%20multiple%20format%20rendering/badge.svg)
+![Render and upload docs](https://github.com/lucharo/rmarkdown-action/workflows/Render%20and%20upload%20docs/badge.svg)
 # rmarkdown-action
 
 Github action to render documents using rmarkdown. Uses `rocker/r-rmd` docker image which includes rmardkown, pandoc and latex.
