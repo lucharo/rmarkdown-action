@@ -1,8 +1,12 @@
-#Container image that runs your code
-FROM rocker/r-rmd
+#Container image that runs your code (tidyverse installed)
+FROM rocker/tidyverse:4.2.2
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
-COPY entrypoint.sh render.R /
+#Copy files inside r_files folder + install other R packages
+COPY ./r_files ./r_files
+RUN R -e "install.packages(c('DT'))"
+
+#alternative
+# RUN Rscript ./r_files/requirements.R
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["r_files/entrypoint.sh"]
